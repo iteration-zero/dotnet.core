@@ -1,6 +1,8 @@
 using System;
 using System.Globalization;
 
+using IterationZero.Core.Resources;
+
 namespace IterationZero.Core
 {
     /// <summary>
@@ -21,10 +23,9 @@ namespace IterationZero.Core
             string currentArgumentName = argumentName;
 
 			if (string.IsNullOrEmpty(currentArgumentName)) {
-				//currentArgumentName = ExceptionManagerResource.UndefinedArgumentName;
                 currentArgumentName = "undefined";
 			}
-
+            
 			//string message = string.Format(CultureInfo.CurrentCulture, ExceptionManagerResource.ArgumentNullMessage, currentArgumentName);
             string message = $"Argument '{ currentArgumentName }' is required.";
 			throw new ArgumentNullException(argumentName, message);

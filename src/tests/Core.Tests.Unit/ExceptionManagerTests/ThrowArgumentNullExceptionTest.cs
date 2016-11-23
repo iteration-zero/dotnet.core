@@ -22,7 +22,7 @@ namespace IterationZero.Core.Tests.Unit.ExceptionManagerTests
                 ExceptionManager.ThrowArgumentNullException("someArgument")
             );
         
-            Assert.Equal<string>("Argument 'someArgument' is required.\r\nParameter name: someArgument", exception.Message);
+            Assert.True(exception.Message.Contains("Argument 'someArgument' is required."));
         }
     }
 }   
