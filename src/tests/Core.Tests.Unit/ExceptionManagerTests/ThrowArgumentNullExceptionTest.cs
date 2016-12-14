@@ -24,5 +24,18 @@ namespace IterationZero.Core.Tests.Unit.ExceptionManagerTests
         
             Assert.True(exception.Message.Contains("Argument 'someArgument' is required."));
         }
+
+        /// <summary>
+        /// Tests that the default argument name is used if one is not supplied.
+        /// </summary>
+        [Fact]
+        public void DefaultArgumentNameShouldBeUsed()
+        {
+            ArgumentNullException exception = Assert.Throws<ArgumentNullException>(() =>
+                        ExceptionManager.ThrowArgumentNullException(null)
+            );
+
+            Assert.True(exception.Message.Contains("Argument 'undefined' is required."));
+        }
     }
 }   

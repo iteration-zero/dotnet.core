@@ -22,11 +22,12 @@ namespace IterationZero.Core
         {
             string currentArgumentName = argumentName;
 
-			if (string.IsNullOrEmpty(currentArgumentName)) {
-                currentArgumentName = "undefined";
+			if (string.IsNullOrEmpty(currentArgumentName))
+			{
+			    currentArgumentName
+			        = ResourceRegistry.Instance.GetCurrent().ExceptionManagerResource.DefaultArgumentName;
 			}
             
-			//string message = string.Format(CultureInfo.CurrentCulture, ExceptionManagerResource.ArgumentNullMessage, currentArgumentName);
             string message = $"Argument '{ currentArgumentName }' is required.";
 			throw new ArgumentNullException(argumentName, message);
         }

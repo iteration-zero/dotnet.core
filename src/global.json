@@ -1,6 +1,6 @@
 {
     "projects": [
-        "code/Core",
-        "tests/Core.Tests.Unit"
+        "code",
+        "tests"
     ]
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 
 namespace IterationZero.Core.Resources
 {
@@ -12,7 +14,8 @@ namespace IterationZero.Core.Resources
         /// </summary>
         private ResourceRegistry()
         {
-            _registry = new Dictionary<string, ResourceRoot> {{"en-US", new ResourceRoot()}};
+
+            _registry = new Dictionary<string, ResourceRoot> {{_defaultName, new ResourceRoot()}};
         }
 
         /// <summary>
@@ -34,10 +37,28 @@ namespace IterationZero.Core.Resources
             _registry.Add(name, root);
         }
 
+        public ResourceRoot GetCurrent()
+        {
+            CultureInfo culture = CultureInfo.CurrentCulture;
+
+            return Get(culture.Name);
+        }
+
+        /// <summary>
+        /// Gets the resource root based on the supplied <paramref name="name"/>.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the resource root to get.
+        /// </param>
+        /// <returns></returns>
         public ResourceRoot Get(string name)
         {
-            return _registry[name];
+            return _registry.ContainsKey(name)
+                ? _registry[name]
+                : _registry[_defaultName];
         }
+
         private readonly Dictionary<string, ResourceRoot> _registry;
+        private const string _defaultName = "en-US";
     }
 }
