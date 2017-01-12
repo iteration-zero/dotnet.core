@@ -1,2 +1,6 @@
 language: csharp
 solution: src/IterationZero.Core.sln
+dist: trusty
+sudo: required
+mono: none
+dotnet: 1.0.0-preview3-004056
