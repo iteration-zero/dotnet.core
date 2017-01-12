@@ -3,7 +3,6 @@ dist: trusty
 sudo: required
 mono: none
 dotnet: 1.0.0-preview3-004056
-solution: src/IterationZero.Core.sln
 before_script:
   - chmod a+x ./build.sh
 script:
