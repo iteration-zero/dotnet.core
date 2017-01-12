@@ -1,2 +1,4 @@
-#!/usr/bin/env bash
-dotnet restore && dotnet build src/IterationZero.Core.sln
+#!/bin/bash
+set -ev
+dotnet restore
+dotnet build src/IterationZero.Core.sln
