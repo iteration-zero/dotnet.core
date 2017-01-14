@@ -22,7 +22,20 @@ namespace IterationZero.Core.Tests.Unit.ExceptionManagerTests
                 ExceptionManager.ThrowArgumentNullException("someArgument")
             );
         
-            Assert.Equal<string>("Argument 'someArgument' is required.\r\nParameter name: someArgument", exception.Message);
+            Assert.True(exception.Message.Contains("Argument 'someArgument' is required."));
+        }
+
+        /// <summary>
+        /// Tests that the default argument name is used if one is not supplied.
+        /// </summary>
+        [Fact]
+        public void DefaultArgumentNameShouldBeUsed()
+        {
+            ArgumentNullException exception = Assert.Throws<ArgumentNullException>(() =>
+                        ExceptionManager.ThrowArgumentNullException(null)
+            );
+
+            Assert.True(exception.Message.Contains("Argument 'undefined' is required."));
         }
     }
 }   
