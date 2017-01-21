@@ -2,6 +2,12 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
   
   <PropertyGroup>
+    <AssemblyName>IterationZero.Core</AssemblyName>
+    <Company>Iteration Zero Software</Company>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <Version>0.1.0.0</Version>
+    <Authors>Iteration Zero Software</Authors>
+    <Description>Iteration Zero core utility library.</Description>
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
